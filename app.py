@@ -2,6 +2,7 @@ import csv
 import os
 import time
 import random
+import platform
 import asyncio  # ✅ Added for event loop fix
 from flask import Flask
 from playwright.sync_api import sync_playwright
@@ -614,3 +615,4 @@ else:
 # if __name__ == "__main__":
 
 #     app.run(host="0.0.0.0", port=5000)
+
