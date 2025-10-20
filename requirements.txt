@@ -1,4 +1,6 @@
-Flask==2.3.3
-playwright==1.38.0
-gunicorn==21.2.0
+streamlit
+playwright
 pandas
+beautifulsoup4
+requests
+lxml
