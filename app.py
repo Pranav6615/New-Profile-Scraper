@@ -259,7 +259,7 @@ def main():
     scrapeddata = []
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
 
             if os.path.exists(AUTH_FILE_PATH):
                 print("✅ Using existing login session from state.json...")
@@ -615,4 +615,5 @@ else:
 # if __name__ == "__main__":
 
 #     app.run(host="0.0.0.0", port=5000)
+
 
