@@ -8,11 +8,12 @@ from playwright.sync_api import sync_playwright
 import streamlit as st  # ✅ Added for Streamlit UI
 
 # --- Windows event loop fix (prevents NotImplementedError) ---
+# ✅ Cross-platform event loop setup
 try:
-    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+    if platform.system() == "Windows":
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 except Exception as e:
-    st.warning(f"Event loop setup failed: {e}")
-
+    st.warning(f"Event loop setup skipped: {e}")
 # --- Configuration ---
 INPUT_CSV_PATH = 'profiles.csv'
 OUTPUT_CSV_PATH = 'scraped_data.csv'
@@ -611,4 +612,5 @@ else:
 #     return "No file available. Run /start_scrape first."
 
 # if __name__ == "__main__":
+
 #     app.run(host="0.0.0.0", port=5000)
